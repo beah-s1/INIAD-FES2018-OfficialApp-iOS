@@ -13,6 +13,10 @@ import SwiftyJSON
 import KeychainAccess
 
 class IniadMapViewController:UIViewController{
+    
+    @IBOutlet weak var mapImage: UIImageView!
+    @IBOutlet weak var exhibitsView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
