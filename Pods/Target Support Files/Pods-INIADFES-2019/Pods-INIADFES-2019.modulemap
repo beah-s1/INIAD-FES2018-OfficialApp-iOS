@@ -1,0 +1,6 @@
+framework module Pods_INIADFES_2019 {
+  umbrella header "Pods-INIADFES-2019-umbrella.h"
+
+  export *
+  module * { export * }
+}
