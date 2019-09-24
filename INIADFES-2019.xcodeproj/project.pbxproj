@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		961077672339D53A0027094F /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961077662339D53A0027094F /* configuration.plist */; };
+		961077692339EEDD0027094F /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961077682339EEDD0027094F /* Objects.swift */; };
 		9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666960C232F751C002A05F9 /* IniadMapViewController.swift */; };
 		96669613232FF4BA002A05F9 /* ExhibitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */; };
 		96BBCF842339D2F00022827B /* ConfirgurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BBCF832339D2F00022827B /* ConfirgurationController.swift */; };
@@ -49,6 +50,7 @@
 		6387AC2D858B9A7EB1257626 /* Pods-INIADFES-2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INIADFES-2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-INIADFES-2019Tests/Pods-INIADFES-2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE1E94E6CF27D521C25459B /* Pods-INIADFES-2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INIADFES-2019.debug.xcconfig"; path = "Target Support Files/Pods-INIADFES-2019/Pods-INIADFES-2019.debug.xcconfig"; sourceTree = "<group>"; };
 		961077662339D53A0027094F /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
+		961077682339EEDD0027094F /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		9666960C232F751C002A05F9 /* IniadMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapViewController.swift; sourceTree = "<group>"; };
 		96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitViewCell.swift; sourceTree = "<group>"; };
 		96BBCF832339D2F00022827B /* ConfirgurationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirgurationController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				96F3F979232F6471001B59E0 /* Info.plist */,
 				9666960C232F751C002A05F9 /* IniadMapViewController.swift */,
 				961077662339D53A0027094F /* configuration.plist */,
+				961077682339EEDD0027094F /* Objects.swift */,
 			);
 			path = "INIADFES-2019";
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				96F3F96C232F646B001B59E0 /* AppDelegate.swift in Sources */,
 				96F3F96E232F646B001B59E0 /* SceneDelegate.swift in Sources */,
 				96669613232FF4BA002A05F9 /* ExhibitViewCell.swift in Sources */,
+				961077692339EEDD0027094F /* Objects.swift in Sources */,
 				96BBCF842339D2F00022827B /* ConfirgurationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

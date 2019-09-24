@@ -38,11 +38,12 @@
                                     <constraint firstAttribute="width" secondItem="fw1-YF-BLR" secondAttribute="height" multiplier="375:44" id="YlB-Dn-CS9"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Home" id="gDc-cg-4zu"/>
+                                    <navigationItem title="1F マップ" id="gDc-cg-4zu"/>
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="3F" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-IL-udx">
                                 <rect key="frame" x="0.0" y="92.5" width="414" height="329"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xbR-IL-udx" secondAttribute="height" multiplier="375:298" id="H1o-Tl-Dj9"/>
                                 </constraints>
@@ -51,17 +52,17 @@
                                 <rect key="frame" x="0.0" y="429.5" width="414" height="383.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExhibitCell" rowHeight="140" id="Dvh-NX-aoa" customClass="ExhibitViewCell" customModule="INIADFES_2019" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="content" rowHeight="140" id="Dvh-NX-aoa" customClass="ExhibitViewCell" customModule="INIADFES_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dvh-NX-aoa" id="Mq6-9u-ePk">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="content" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dvh-NX-aoa" id="Mq6-9u-ePk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9lm-cb-YPm">
                                                     <rect key="frame" x="0.0" y="0.0" width="25.5" height="140"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="団体名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEB-yD-XTI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="団体名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEB-yD-XTI">
                                                     <rect key="frame" x="33" y="28" width="240" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="cQp-PK-L7C"/>
@@ -79,7 +80,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ7-AE-ygd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ7-AE-ygd">
                                                     <rect key="frame" x="33" y="62" width="240" height="67"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jZ7-AE-ygd" secondAttribute="height" multiplier="240:67" id="OOX-s5-M6L"/>
@@ -133,6 +134,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fw1-YF-BLR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C24-Zg-0Rc"/>
                             <constraint firstItem="hnU-aM-4mA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EDF-TD-DrU"/>
@@ -146,15 +148,30 @@
                             <constraint firstItem="xbR-IL-udx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xTP-DP-A3M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qTL-c7-DRT" appends="YES" id="Gvo-RC-cjU"/>
+                            <outletCollection property="gestureRecognizers" destination="SVA-Bm-dyN" appends="YES" id="uDg-2c-9Ly"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fDH-sb-TR6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="exhibitsView" destination="hnU-aM-4mA" id="VPr-Rz-tpB"/>
+                        <outlet property="floorBar" destination="fw1-YF-BLR" id="QtK-Lj-xLv"/>
                         <outlet property="mapImage" destination="xbR-IL-udx" id="k2i-ft-r0a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="qTL-c7-DRT">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="YzJ-dJ-q49"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="SVA-Bm-dyN">
+                    <connections>
+                        <action selector="swipeRight:" destination="BYZ-38-t0r" id="Quu-LT-dJI"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-491.304347826087" y="-788.83928571428567"/>
         </scene>
