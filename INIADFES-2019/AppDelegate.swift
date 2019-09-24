@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        checkApiKey()
+        
         return true
     }
 
@@ -31,6 +36,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func checkApiKey(){
+        let config = Configuration()
+        let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
+        if keyStore["api_key"] != nil{
+            return
+        }else{
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue     = DispatchQueue.global(qos: .utility)
+            Alamofire.request("\(config.forKey(key: "base_url"))/api/v1/user/new", method: .post, parameters: ["device_type":"iOS"]).responseJSON(queue: queue){response in
+                guard let value = response.result.value else{
+                    self.checkApiKey()
+                    return
+                }
+                if response.response?.statusCode != 200{
+                    self.checkApiKey()
+                    return
+                }
+                
+                let responseJson = JSON(value)
+                print(responseJson)
+                
+                keyStore["api_key"] = responseJson["secret"].stringValue
+                
+                semaphore.signal()
+            }
+            
+            semaphore.wait()
+            
+        }
+    }
 
 }
 
