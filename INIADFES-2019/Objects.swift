@@ -13,6 +13,12 @@ struct Content{
     var title = ""
     var description = ""
     var organizer = ""
-    var place = ""
-    var color = ""
+    var place = Room()
+}
+
+struct Room{
+    var ucode = ""
+    var roomName = ""
+    var doorNames = [String]()
+    var roomColorCode = ""
 }

@@ -41,7 +41,7 @@
                                     <navigationItem title="1F マップ" id="gDc-cg-4zu"/>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="3F" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-IL-udx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-IL-udx">
                                 <rect key="frame" x="0.0" y="92.5" width="414" height="329"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -59,7 +59,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9lm-cb-YPm">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lm-cb-YPm">
                                                     <rect key="frame" x="0.0" y="0.0" width="25.5" height="140"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="団体名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEB-yD-XTI">
@@ -67,7 +67,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="cQp-PK-L7C"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -176,7 +176,4 @@
             <point key="canvasLocation" x="-491.304347826087" y="-788.83928571428567"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="3F" width="1189" height="953"/>
-    </resources>
 </document>
