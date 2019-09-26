@@ -130,19 +130,29 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func swipeLeft(_ sender: Any) {
         print("Swipe to Left")
         //increment
-        if self.selectedFloor < 5{
-            self.selectedFloor += 1
-            self.initContents()
+        if self.selectedFloor >= 5{
+            return
         }
+        
+        self.selectedFloor += 1
+        if self.selectedFloor == 2{
+            self.selectedFloor += 1
+        }
+        self.initContents()
     }
     
     @IBAction func swipeRight(_ sender: Any) {
         print("Swipe to Right")
         //decrement
-        if self.selectedFloor > 1{
-            self.selectedFloor -= 1
-            self.initContents()
+        if self.selectedFloor <= 1{
+            return
         }
+        
+        self.selectedFloor -= 1
+        if self.selectedFloor == 2{
+            self.selectedFloor -= 1
+        }
+        self.initContents()
     }
     
 }
