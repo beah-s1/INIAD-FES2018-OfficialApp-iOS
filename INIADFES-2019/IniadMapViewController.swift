@@ -85,7 +85,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
                 self.contents.append(newContent)
             }
             
-            print(self.contents)
+            //print(self.contents)
             self.exhibitsView.delegate = self
             self.exhibitsView.dataSource = self
             self.exhibitsView.rowHeight = 140
@@ -128,7 +128,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
-        print("Swipe to Left")
+        //print("Swipe to Left")
         //increment
         if self.selectedFloor >= 5{
             return
@@ -142,7 +142,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func swipeRight(_ sender: Any) {
-        print("Swipe to Right")
+        //print("Swipe to Right")
         //decrement
         if self.selectedFloor <= 1{
             return

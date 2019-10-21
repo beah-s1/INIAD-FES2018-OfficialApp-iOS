@@ -35,3 +35,19 @@ extension UIColor {
         self.init(hex: hex, alpha: 1.0)
     }
 }
+
+public extension URL {
+    public func queryParams() -> [String : String] {
+        var params = [String : String]()
+
+        guard let comps = URLComponents(string: self.absoluteString) else {
+            return params
+        }
+        guard let queryItems = comps.queryItems else { return params }
+
+        for queryItem in queryItems {
+            params[queryItem.name] = queryItem.value
+        }
+        return params
+    }
+}

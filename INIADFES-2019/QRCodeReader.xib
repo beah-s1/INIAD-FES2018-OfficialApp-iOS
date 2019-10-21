@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QRCodeReader" customModule="INIADFES_2019" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="読み取り中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM5-rQ-WdX">
+                    <rect key="frame" x="16" y="600" width="343" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="PM5-rQ-WdX" secondAttribute="height" multiplier="49:3" id="zit-9b-Tqe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-Fa-pcg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="PM5-rQ-WdX" secondAttribute="bottom" constant="20" id="8hg-lt-T8t"/>
+                <constraint firstItem="PM5-rQ-WdX" firstAttribute="top" secondItem="1W8-Fa-pcg" secondAttribute="bottom" constant="8" id="B7u-eO-nn9"/>
+                <constraint firstItem="1W8-Fa-pcg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bDx-Uu-c2g"/>
+                <constraint firstItem="1W8-Fa-pcg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cQf-Pf-OLl"/>
+                <constraint firstItem="1W8-Fa-pcg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="heb-j3-hfD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PM5-rQ-WdX" secondAttribute="trailing" constant="16" id="jrP-MR-PAe"/>
+                <constraint firstItem="PM5-rQ-WdX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="xCW-Ug-M0z"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="133.37438423645321"/>
+        </view>
+    </objects>
+</document>
