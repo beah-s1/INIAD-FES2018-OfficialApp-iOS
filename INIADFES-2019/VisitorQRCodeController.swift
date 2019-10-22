@@ -85,6 +85,7 @@ class VisitorQRCodeController:UIViewController{
                 view.apiKey = self.keyStore["api_key"]!
                 view.baseUrl = self.configuration.forKey(key: "base_url")
                 view.viewForm()
+                view.frame = self.userSubView.bounds
                 
                 self.userSubView.addSubview(view)
                 

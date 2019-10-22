@@ -20,7 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jPA-Fr-nmx"/>
-                        <segue destination="rMV-QW-ouB" kind="relationship" relationship="viewControllers" id="BHe-6g-P7r"/>
+                        <segue destination="rMV-QW-ouB" kind="relationship" relationship="viewControllers" id="zp8-wo-dIy"/>
                         <segue destination="jxr-Iu-Ucf" kind="relationship" relationship="viewControllers" id="qBr-gS-5ja"/>
                     </connections>
                 </tabBarController>
@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-1545" y="-79"/>
         </scene>
-        <!--QR-->
+        <!--Item-->
         <scene sceneID="fe2-ST-59p">
             <objects>
                 <viewController id="rMV-QW-ouB" customClass="VisitorQRCodeController" customModule="INIADFES_2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="Z1h-fH-st2"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="QR" id="RaY-sO-oPY"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="vro-6X-jTZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="userSubView" destination="qkZ-G8-vSG" id="U5J-h5-dRo"/>
