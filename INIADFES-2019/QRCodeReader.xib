@@ -41,6 +41,9 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="qrCam" destination="1W8-Fa-pcg" id="nU6-N8-fSd"/>
+            </connections>
             <point key="canvasLocation" x="138.40000000000001" y="133.37438423645321"/>
         </view>
     </objects>

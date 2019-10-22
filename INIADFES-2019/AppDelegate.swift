@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = Configuration()
         let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
         if keyStore["api_key"] != nil{
-            requestApiKey()
+            //requestApiKey()
         }else{
             requestApiKey()
         }

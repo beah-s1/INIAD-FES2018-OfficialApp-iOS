@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import WebKit
+import AVFoundation
 
 class VisitorAttributeForm:UIView, WKNavigationDelegate, WKUIDelegate{
     var baseUrl = ""
@@ -58,9 +59,29 @@ class VisitorAttributeForm:UIView, WKNavigationDelegate, WKUIDelegate{
 }
 
 class VisitorQRCodeDisplay:UIView{
+    @IBOutlet weak var qrCodeView: UIImageView!
     
+    func displayQrCode(text:String){
+        let data = text.data(using: String.Encoding.utf8)!
+        
+        let qr = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": "M"])!
+        let sizeTransform = CGAffineTransform(scaleX: 255, y: 255)
+        let qrImage = qr.outputImage!.transformed(by: sizeTransform)
+        let context = CIContext()
+        let cgImage = context.createCGImage(qrImage, from: qrImage.extent)
+        let uiImage = UIImage(cgImage: cgImage!)
+        
+        qrCodeView.contentMode = .scaleAspectFill
+        qrCodeView.image = uiImage
+    }
 }
 
-class QRCodeReader:UIView{
+class QRCodeReader:UIView, AVCaptureMetadataOutputObjectsDelegate{
+    @IBOutlet weak var qrCam: UIView!
+    let session = AVCaptureSession()
+    let cameraMode = 0 //0・・・外カメラ、1・・・内カメラ
     
+    func initialize(){
+        
+    }
 }

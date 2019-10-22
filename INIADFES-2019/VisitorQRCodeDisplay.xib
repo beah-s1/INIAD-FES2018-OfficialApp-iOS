@@ -12,12 +12,37 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VisitorQRCodeDisplay" customModule="INIADFES_2019" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="VisitorQRCodeDisplay" translatesAutoresizingMaskIntoConstraints="NO" id="jZg-bf-5D5">
+                    <rect key="frame" x="60" y="69" width="255" height="255"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jZg-bf-5D5" secondAttribute="height" multiplier="1:1" id="jUk-pJ-Nbm"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受付でQRコードを提示してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-WT-feh">
+                    <rect key="frame" x="25" y="421" width="325" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RzG-WT-feh" firstAttribute="top" secondItem="jZg-bf-5D5" secondAttribute="bottom" constant="97" id="610-O1-7Lj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RzG-WT-feh" secondAttribute="trailing" constant="25" id="Fvf-Ee-Uo3"/>
+                <constraint firstItem="jZg-bf-5D5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="NUz-uW-mjr"/>
+                <constraint firstItem="jZg-bf-5D5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="gXU-ak-FZq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jZg-bf-5D5" secondAttribute="trailing" constant="60" id="iaN-jz-JST"/>
+                <constraint firstItem="RzG-WT-feh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="uUM-P0-D6M"/>
+            </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="134"/>
+            <connections>
+                <outlet property="qrCodeView" destination="jZg-bf-5D5" id="w3i-vW-RON"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="133.37438423645321"/>
         </view>
     </objects>
 </document>

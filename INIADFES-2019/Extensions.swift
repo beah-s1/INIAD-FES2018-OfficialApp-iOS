@@ -51,3 +51,19 @@ public extension URL {
         return params
     }
 }
+
+extension UIView {
+
+    func addAndFit(subview:UIView) {
+
+        // Autosizingからの変換を無効にする
+        subview.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            subview.leftAnchor.constraint(equalTo: leftAnchor),
+            subview.rightAnchor.constraint(equalTo: rightAnchor),
+            subview.topAnchor.constraint(equalTo: topAnchor),
+            subview.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+}

@@ -21,6 +21,7 @@ class VisitorQRCodeController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.extendedLayoutIncludesOpaqueBars = false
         loadPermission()
     }
     
@@ -54,6 +55,26 @@ class VisitorQRCodeController:UIViewController{
                 break
             case (let role) where role.contains("visitor"):
                 // QR表示画面
+                guard let view = UINib(nibName: "VisitorQRCodeDisplay", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? VisitorQRCodeDisplay else{
+                    break
+                }
+                
+                var visitorResponseObject:JSON!
+                
+                let semaphore = DispatchSemaphore(value: 0)
+                let queue     = DispatchQueue.global(qos: .utility)
+                Alamofire.request("\(self.configuration.forKey(key: "base_url"))/api/v1/visitor", method: .get, headers: ["Authorization": "Bearer \(self.keyStore["api_key"]!)"]).responseJSON(queue: queue, completionHandler: {response in
+                    visitorResponseObject = JSON(response.result.value!)
+                    
+                    semaphore.signal()
+                })
+                semaphore.wait()
+                
+                print(visitorResponseObject)
+                view.backgroundColor = .white
+                view.displayQrCode(text: "https://app.iniadfes.com/visitor?user_id=\(visitorResponseObject["user_id"].stringValue)")
+                self.userSubView.addSubview(view)
+                
                 break
             default:
                 // 属性登録フォーム
@@ -64,6 +85,7 @@ class VisitorQRCodeController:UIViewController{
                 view.apiKey = self.keyStore["api_key"]!
                 view.baseUrl = self.configuration.forKey(key: "base_url")
                 view.viewForm()
+                
                 self.userSubView.addSubview(view)
                 
                 break

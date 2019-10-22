@@ -14,6 +14,7 @@
 		9644346D2353047000744FF3 /* VisitorQRCodeDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9644346C2353047000744FF3 /* VisitorQRCodeDisplay.xib */; };
 		964434712358DCA900744FF3 /* VisitorQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964434702358DCA900744FF3 /* VisitorQRCodeView.swift */; };
 		96443473235D5C4D00744FF3 /* VisitorAttributeForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96443472235D5C4D00744FF3 /* VisitorAttributeForm.xib */; };
+		96443475235D5FC100744FF3 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96443474235D5FC100744FF3 /* ConfigViewController.swift */; };
 		9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666960C232F751C002A05F9 /* IniadMapViewController.swift */; };
 		96669613232FF4BA002A05F9 /* ExhibitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */; };
 		96BBCF842339D2F00022827B /* ConfirgurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BBCF832339D2F00022827B /* ConfirgurationController.swift */; };
@@ -62,6 +63,7 @@
 		9644346C2353047000744FF3 /* VisitorQRCodeDisplay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorQRCodeDisplay.xib; sourceTree = "<group>"; };
 		964434702358DCA900744FF3 /* VisitorQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorQRCodeView.swift; sourceTree = "<group>"; };
 		96443472235D5C4D00744FF3 /* VisitorAttributeForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorAttributeForm.xib; sourceTree = "<group>"; };
+		96443474235D5FC100744FF3 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9666960C232F751C002A05F9 /* IniadMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapViewController.swift; sourceTree = "<group>"; };
 		96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitViewCell.swift; sourceTree = "<group>"; };
 		96BBCF832339D2F00022827B /* ConfirgurationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirgurationController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				96BBCF832339D2F00022827B /* ConfirgurationController.swift */,
 				96F3F96F232F646B001B59E0 /* ViewController.swift */,
 				96F3F971232F646B001B59E0 /* Main.storyboard */,
+				96443474235D5FC100744FF3 /* ConfigViewController.swift */,
 				9644346C2353047000744FF3 /* VisitorQRCodeDisplay.xib */,
 				96443472235D5C4D00744FF3 /* VisitorAttributeForm.xib */,
 				9644346A2353045E00744FF3 /* QRCodeReader.xib */,
@@ -429,6 +432,7 @@
 				96F3F970232F646B001B59E0 /* ViewController.swift in Sources */,
 				964434712358DCA900744FF3 /* VisitorQRCodeView.swift in Sources */,
 				9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */,
+				96443475235D5FC100744FF3 /* ConfigViewController.swift in Sources */,
 				96E40022234A5981001FD837 /* VisitorQRCodeController.swift in Sources */,
 				96F3F96C232F646B001B59E0 /* AppDelegate.swift in Sources */,
 				9610776B233A2EFD0027094F /* Extensions.swift in Sources */,
