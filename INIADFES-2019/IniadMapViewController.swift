@@ -155,4 +155,9 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         self.initContents()
     }
     
+    @IBAction func touchImage(_ sender: Any){
+        let view = storyboard!.instantiateViewController(identifier: "iniadMapExpansionView") as! IniadMapExpansionViewController
+        view.baseImage = self.mapImage.image
+        self.present(view, animated: true, completion: nil)
+    }
 }
