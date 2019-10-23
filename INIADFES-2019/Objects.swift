@@ -14,6 +14,7 @@ struct Content{
     var description = ""
     var organizer = ""
     var place = Room()
+    var imageUrl = ""
 }
 
 struct Room{

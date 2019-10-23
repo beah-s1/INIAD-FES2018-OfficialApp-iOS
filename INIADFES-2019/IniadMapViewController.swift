@@ -25,6 +25,8 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     
     var contents = [Content]()
     
+    var cachedImages = [String:UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,6 +69,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
                 newContent.title = content.1["title"].stringValue
                 newContent.organizer = content.1["organizer"]["organizer_name"].stringValue
                 newContent.description = content.1["description"].stringValue
+                newContent.imageUrl = content.1["image"].stringValue
                 
                 var room = Room()
                 for doorName in content.1["place"]["door_name"]{
@@ -118,6 +121,20 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         cell.organizerName.text = self.contents[indexPath.row].title
         cell.roomNum.text = "\(self.contents[indexPath.row].place.roomName) 扉番号：\(self.contents[indexPath.row].place.doorNames.joined(separator: ","))"
         cell.exhibitDescription.text = self.contents[indexPath.row].description
+        if let image = self.cachedImages[self.contents[indexPath.row].imageUrl]{
+            cell.exhibitImage.image = image
+        }else{
+            Alamofire.request(self.contents[indexPath.row].imageUrl).responseData{response in
+                guard let value = response.result.value else{
+                    return
+                }
+                let image = UIImage.init(data: value)
+                
+                self.cachedImages[self.contents[indexPath.row].imageUrl] = image
+                cell.exhibitImage.image = image
+            }
+        }
+        
         if self.contents[indexPath.row].place.roomColorCode != ""{
             cell.roomColor.image = UIImage.image(color: UIColor(hex: self.contents[indexPath.row].place.roomColorCode), size: CGSize.init(width: 1000, height: 1000))
         }else{
@@ -162,7 +179,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? ExhibitViewCell else{
+        guard let _ = tableView.cellForRow(at: indexPath) as? ExhibitViewCell else{
             tableView.deselectRow(at: indexPath, animated: true)
             return
         }
@@ -175,5 +192,6 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         view.contentTitleText.text = self.contents[indexPath.row].title
         view.roomAndOrganizationText.text = "\(self.contents[indexPath.row].place.roomName)/\(self.contents[indexPath.row].organizer)"
         view.contentDescriptionText.text = self.contents[indexPath.row].description
+        view.contentImageView.image = self.cachedImages[self.contents[indexPath.row].imageUrl]
     }
 }
