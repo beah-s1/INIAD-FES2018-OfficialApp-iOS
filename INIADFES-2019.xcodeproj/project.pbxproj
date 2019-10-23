@@ -18,6 +18,7 @@
 		9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666960C232F751C002A05F9 /* IniadMapViewController.swift */; };
 		96669613232FF4BA002A05F9 /* ExhibitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */; };
 		9678F8B82360D1B20035EC15 /* IniadMapExpansionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */; };
+		9678F8BA2360E3550035EC15 /* contentDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */; };
 		96BBCF842339D2F00022827B /* ConfirgurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BBCF832339D2F00022827B /* ConfirgurationController.swift */; };
 		96E40022234A5981001FD837 /* VisitorQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E40021234A5981001FD837 /* VisitorQRCodeController.swift */; };
 		96F3F96C232F646B001B59E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F96B232F646B001B59E0 /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		9666960C232F751C002A05F9 /* IniadMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapViewController.swift; sourceTree = "<group>"; };
 		96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitViewCell.swift; sourceTree = "<group>"; };
 		9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapExpansionController.swift; sourceTree = "<group>"; };
+		9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentDescriptionViewController.swift; sourceTree = "<group>"; };
 		96BBCF832339D2F00022827B /* ConfirgurationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirgurationController.swift; sourceTree = "<group>"; };
 		96E40021234A5981001FD837 /* VisitorQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorQRCodeController.swift; sourceTree = "<group>"; };
 		96F3F968232F646B001B59E0 /* INIAD-FES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INIAD-FES.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +158,12 @@
 				96F3F96D232F646B001B59E0 /* SceneDelegate.swift */,
 				96BBCF832339D2F00022827B /* ConfirgurationController.swift */,
 				96F3F96F232F646B001B59E0 /* ViewController.swift */,
-				96F3F971232F646B001B59E0 /* Main.storyboard */,
 				96443474235D5FC100744FF3 /* ConfigViewController.swift */,
+				96E40021234A5981001FD837 /* VisitorQRCodeController.swift */,
+				964434702358DCA900744FF3 /* VisitorQRCodeView.swift */,
+				9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */,
+				96F3F971232F646B001B59E0 /* Main.storyboard */,
+				9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */,
 				9644346C2353047000744FF3 /* VisitorQRCodeDisplay.xib */,
 				96443472235D5C4D00744FF3 /* VisitorAttributeForm.xib */,
 				9644346A2353045E00744FF3 /* QRCodeReader.xib */,
@@ -169,9 +175,6 @@
 				961077662339D53A0027094F /* configuration.plist */,
 				961077682339EEDD0027094F /* Objects.swift */,
 				9610776A233A2EFD0027094F /* Extensions.swift */,
-				96E40021234A5981001FD837 /* VisitorQRCodeController.swift */,
-				964434702358DCA900744FF3 /* VisitorQRCodeView.swift */,
-				9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */,
 			);
 			path = "INIADFES-2019";
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96F3F970232F646B001B59E0 /* ViewController.swift in Sources */,
+				9678F8BA2360E3550035EC15 /* contentDescriptionViewController.swift in Sources */,
 				964434712358DCA900744FF3 /* VisitorQRCodeView.swift in Sources */,
 				9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */,
 				96443475235D5FC100744FF3 /* ConfigViewController.swift in Sources */,

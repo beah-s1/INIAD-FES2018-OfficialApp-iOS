@@ -115,7 +115,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "content") as! ExhibitViewCell
         
-        cell.organizerName.text = self.contents[indexPath.row].organizer
+        cell.organizerName.text = self.contents[indexPath.row].title
         cell.roomNum.text = "\(self.contents[indexPath.row].place.roomName) 扉番号：\(self.contents[indexPath.row].place.doorNames.joined(separator: ","))"
         cell.exhibitDescription.text = self.contents[indexPath.row].description
         if self.contents[indexPath.row].place.roomColorCode != ""{
@@ -159,5 +159,21 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         let view = storyboard!.instantiateViewController(identifier: "iniadMapExpansionView") as! IniadMapExpansionViewController
         view.baseImage = self.mapImage.image
         self.present(view, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? ExhibitViewCell else{
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        
+        let view = storyboard!.instantiateViewController(identifier: "contentDescriptionView") as! ContentDescriptionViewController
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.present(view, animated: true, completion: nil)
+        
+        view.contentTitleText.text = self.contents[indexPath.row].title
+        view.roomAndOrganizationText.text = "\(self.contents[indexPath.row].place.roomName)/\(self.contents[indexPath.row].organizer)"
+        view.contentDescriptionText.text = self.contents[indexPath.row].description
     }
 }
