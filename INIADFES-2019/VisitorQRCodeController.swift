@@ -15,7 +15,6 @@ import KeychainAccess
 class VisitorQRCodeController:UIViewController{
     let configuration = Configuration.init()
     var keyStore:Keychain!
-    var mode = 0 // 0 -> Visitor Mode(not registered attribute)/ 1 -> Visitor Mode(registered attribute)/ 2 -> student mode/ 3 -> admin mode
     
     @IBOutlet weak var userSubView: UIView!
     
@@ -39,7 +38,7 @@ class VisitorQRCodeController:UIViewController{
             }
             
             let responseJsonObject = JSON(value)
-            
+            print(responseJsonObject)
             guard let appUserRole = responseJsonObject["role"].arrayObject as? [String] else{
                 return
             }
@@ -52,6 +51,34 @@ class VisitorQRCodeController:UIViewController{
             switch appUserRole{
             case (let role) where role.contains("circle_participant") || role.contains("fes_admin"):
                 // QR読み取り画面
+                guard let view = UINib(nibName: "QRCodeReader", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? QRCodeReader else{
+                    break
+                }
+                for circle in responseJsonObject["member_of"]{
+                    for content in circle.1["contents"]{
+                        view.availableCircles.append([
+                            "name":"\(circle.1["organization_name"].stringValue)/\(content.1["title"].stringValue)",
+                            "ucode":content.1["ucode"].stringValue
+                        ])
+                    }
+                }
+                guard let selectedCircle = view.availableCircles.first else{
+                    let alert = UIAlertController(title: "Error", message: "利用可能な団体がありません", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    break
+                }
+                
+                view.selectedCircle = selectedCircle
+                view.apiKey = self.keyStore["api_key"]!
+                view.baseUrl = self.configuration.forKey(key: "base_url")
+                view.backgroundColor = .systemBackground
+                view.frame = self.userSubView.bounds
+                view.initialize()
+                
+                self.userSubView.addSubview(view)
+                
                 break
             case (let role) where role.contains("visitor"):
                 // QR表示画面
@@ -70,8 +97,8 @@ class VisitorQRCodeController:UIViewController{
                 })
                 semaphore.wait()
                 
-                print(visitorResponseObject)
                 view.backgroundColor = .white
+                view.frame = self.userSubView.bounds
                 view.displayQrCode(text: "https://app.iniadfes.com/visitor?user_id=\(visitorResponseObject["user_id"].stringValue)")
                 self.userSubView.addSubview(view)
                 
