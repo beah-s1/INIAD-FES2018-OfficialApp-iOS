@@ -39,7 +39,11 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func initContents(){
-        self.floorBar.topItem?.title = "\(self.selectedFloor)F MAP"
+        if self.selectedFloor != 5{
+            self.floorBar.topItem?.title = "\(self.selectedFloor)F MAP"
+        }else{
+            self.floorBar.topItem?.title = "七福神広場 MAP"
+        }
         
         self.keyStore = Keychain.init(service: configuration.forKey(key: "keychain_identifier"))
         Alamofire.request(
@@ -173,7 +177,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func touchImage(_ sender: Any){
-        let view = storyboard!.instantiateViewController(identifier: "iniadMapExpansionView") as! IniadMapExpansionViewController
+        let view = storyboard!.instantiateViewController(withIdentifier: "iniadMapExpansionView") as! IniadMapExpansionViewController
         view.baseImage = self.mapImage.image
         self.present(view, animated: true, completion: nil)
     }
@@ -184,7 +188,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        let view = storyboard!.instantiateViewController(identifier: "contentDescriptionView") as! ContentDescriptionViewController
+        let view = storyboard!.instantiateViewController(withIdentifier: "contentDescriptionView") as! ContentDescriptionViewController
         tableView.deselectRow(at: indexPath, animated: true)
         
         self.present(view, animated: true, completion: nil)

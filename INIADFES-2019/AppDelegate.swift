@@ -13,12 +13,40 @@ import KeychainAccess
 import AudioToolbox
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         checkApiKey()
+        
+        if #available(iOS 10.0, *){
+            /** iOS10以上 **/
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .badge, .sound]) {granted, error in
+                if error != nil {
+                    // エラー時の処理
+                    return
+                }
+                if granted {
+                    // デバイストークンの要求
+                    DispatchQueue.main.async{
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+        } else {
+            /** iOS8以上iOS10未満 **/
+            //通知のタイプを設定したsettingを用意
+            let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            //通知のタイプを設定
+            application.registerUserNotificationSettings(setting)
+            //DevoceTokenを要求
+            DispatchQueue.main.async{
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+
         
         return true
     }
@@ -32,6 +60,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let config = Configuration()
+        let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
+        let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
+        print(token)
+        
+        Alamofire.request("\(config.forKey(key: "base_url"))/api/v1/user", method: .post, parameters: ["device_token":token], headers: ["Authorization":"Bearer \(keyStore["api_key"]!)"]).responseJSON{response in
+            guard let value = response.result.value else{
+                return
+            }
+            
+            print(JSON(value))
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register to APNs: \(error)")
     }
 /*
     // MARK: UISceneSession Lifecycle

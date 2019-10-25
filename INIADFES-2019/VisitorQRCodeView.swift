@@ -29,17 +29,14 @@ class VisitorAttributeForm:UIView, WKNavigationDelegate, WKUIDelegate{
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
     }
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        decisionHandler(.allow)
-    }
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
         guard let url = navigationAction.request.url else{
             return
         }
         print(url.absoluteString)
         if url.scheme != "iniadfes"{
-            decisionHandler(.allow, preferences)
+            decisionHandler(.allow)
             return
         }
         
@@ -55,7 +52,7 @@ class VisitorAttributeForm:UIView, WKNavigationDelegate, WKUIDelegate{
         }else{
             UIApplication.shared.open(url)
         }
-        decisionHandler(.cancel,preferences)
+        decisionHandler(.cancel)
     }
 }
 
@@ -207,5 +204,20 @@ class QRCodeReader:UIView, AVCaptureMetadataOutputObjectsDelegate{
             self.selectedCircleText.text = self.selectedCircle["name"]
             break
         }
+    }
+}
+
+class FinalEnqueteView:UIView,WKNavigationDelegate,WKUIDelegate{
+    var apiKey = ""
+    var baseUrl = ""
+    @IBOutlet weak var webView: WKWebView!
+    
+    func intiialize(){
+        self.webView.navigationDelegate = self
+        self.webView.uiDelegate = self
+        
+        let req = URLRequest.init(url: URL(string:"\(self.baseUrl)/visitor/final-enquete?api_key=\(self.apiKey)")!)
+        self.webView.load(req)
+        
     }
 }

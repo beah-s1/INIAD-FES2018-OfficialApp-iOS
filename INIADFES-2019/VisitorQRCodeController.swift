@@ -73,7 +73,11 @@ class VisitorQRCodeController:UIViewController{
                 view.selectedCircle = selectedCircle
                 view.apiKey = self.keyStore["api_key"]!
                 view.baseUrl = self.configuration.forKey(key: "base_url")
-                view.backgroundColor = .systemBackground
+                if #available(iOS 13.0, *) {
+                    view.backgroundColor = .systemBackground
+                } else {
+                    // Fallback on earlier versions
+                }
                 view.frame = self.userSubView.bounds
                 view.initialize()
                 
@@ -103,12 +107,30 @@ class VisitorQRCodeController:UIViewController{
                 self.userSubView.addSubview(view)
                 
                 break
+            case (let role) where role.contains("fes_closed"):
+                //最終アンケート回答ページ
+                guard let view = UINib(nibName: "FinalEnqueteForm", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? FinalEnqueteView else{
+                    break
+                }
+                
+                view.backgroundColor = .white
+                view.frame = self.userSubView.bounds
+                view.apiKey = self.keyStore["api_key"]!
+                view.baseUrl = self.configuration.forKey(key: "base_url")
+                
+                view.intiialize()
+                
+                self.userSubView.addSubview(view)
             default:
                 // 属性登録フォーム
                 guard let view = UINib(nibName: "VisitorAttributeForm", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? VisitorAttributeForm else{
                     break
                 }
-                view.backgroundColor = .systemBackground
+                if #available(iOS 13.0, *) {
+                    view.backgroundColor = .systemBackground
+                } else {
+                    // Fallback on earlier versions
+                }
                 view.apiKey = self.keyStore["api_key"]!
                 view.baseUrl = self.configuration.forKey(key: "base_url")
                 view.viewForm()

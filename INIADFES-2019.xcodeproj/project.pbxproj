@@ -17,8 +17,10 @@
 		96443475235D5FC100744FF3 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96443474235D5FC100744FF3 /* ConfigViewController.swift */; };
 		9666960D232F751C002A05F9 /* IniadMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666960C232F751C002A05F9 /* IniadMapViewController.swift */; };
 		96669613232FF4BA002A05F9 /* ExhibitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */; };
+		9678BAD023622ECA005F0884 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9678BACF23622ECA005F0884 /* WebKit.framework */; };
 		9678F8B82360D1B20035EC15 /* IniadMapExpansionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */; };
 		9678F8BA2360E3550035EC15 /* contentDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */; };
+		968400BC2363424700DE72F6 /* FinalEnqueteForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968400BB2363424700DE72F6 /* FinalEnqueteForm.xib */; };
 		96BBCF842339D2F00022827B /* ConfirgurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BBCF832339D2F00022827B /* ConfirgurationController.swift */; };
 		96E40022234A5981001FD837 /* VisitorQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E40021234A5981001FD837 /* VisitorQRCodeController.swift */; };
 		96F3F96C232F646B001B59E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F96B232F646B001B59E0 /* AppDelegate.swift */; };
@@ -68,8 +70,11 @@
 		96443474235D5FC100744FF3 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9666960C232F751C002A05F9 /* IniadMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapViewController.swift; sourceTree = "<group>"; };
 		96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitViewCell.swift; sourceTree = "<group>"; };
+		9678BACE23617334005F0884 /* INIAD-FES.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "INIAD-FES.entitlements"; sourceTree = "<group>"; };
+		9678BACF23622ECA005F0884 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9678F8B72360D1B20035EC15 /* IniadMapExpansionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniadMapExpansionController.swift; sourceTree = "<group>"; };
 		9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentDescriptionViewController.swift; sourceTree = "<group>"; };
+		968400BB2363424700DE72F6 /* FinalEnqueteForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinalEnqueteForm.xib; sourceTree = "<group>"; };
 		96BBCF832339D2F00022827B /* ConfirgurationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirgurationController.swift; sourceTree = "<group>"; };
 		96E40021234A5981001FD837 /* VisitorQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorQRCodeController.swift; sourceTree = "<group>"; };
 		96F3F968232F646B001B59E0 /* INIAD-FES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INIAD-FES.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9678BAD023622ECA005F0884 /* WebKit.framework in Frameworks */,
 				B4F778308FC2908AABB41202 /* Pods_INIADFES_2019.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +128,7 @@
 		50C9313EBDB0A19D0EB02C5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9678BACF23622ECA005F0884 /* WebKit.framework */,
 				3BCFBF81F1A4C4EEF9685746 /* Pods_INIADFES_2019.framework */,
 				A586270F7734364AAE807B0B /* Pods_INIADFES_2019Tests.framework */,
 				AD83077A7BA917D049A4D536 /* Pods_INIADFES_2019UITests.framework */,
@@ -154,6 +161,7 @@
 		96F3F96A232F646B001B59E0 /* INIADFES-2019 */ = {
 			isa = PBXGroup;
 			children = (
+				9678BACE23617334005F0884 /* INIAD-FES.entitlements */,
 				96F3F96B232F646B001B59E0 /* AppDelegate.swift */,
 				96F3F96D232F646B001B59E0 /* SceneDelegate.swift */,
 				96BBCF832339D2F00022827B /* ConfirgurationController.swift */,
@@ -166,6 +174,7 @@
 				9678F8B92360E3550035EC15 /* contentDescriptionViewController.swift */,
 				9644346C2353047000744FF3 /* VisitorQRCodeDisplay.xib */,
 				96443472235D5C4D00744FF3 /* VisitorAttributeForm.xib */,
+				968400BB2363424700DE72F6 /* FinalEnqueteForm.xib */,
 				9644346A2353045E00744FF3 /* QRCodeReader.xib */,
 				96669612232FF4BA002A05F9 /* ExhibitViewCell.swift */,
 				96F3F974232F6471001B59E0 /* Assets.xcassets */,
@@ -320,6 +329,7 @@
 			files = (
 				96443473235D5C4D00744FF3 /* VisitorAttributeForm.xib in Resources */,
 				9644346D2353047000744FF3 /* VisitorQRCodeDisplay.xib in Resources */,
+				968400BC2363424700DE72F6 /* FinalEnqueteForm.xib in Resources */,
 				9644346B2353045E00744FF3 /* QRCodeReader.xib in Resources */,
 				96F3F978232F6471001B59E0 /* LaunchScreen.storyboard in Resources */,
 				961077672339D53A0027094F /* configuration.plist in Resources */,
@@ -621,15 +631,19 @@
 			baseConfigurationReference = 6CE1E94E6CF27D521C25459B /* Pods-INIADFES-2019.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "INIADFES-2019/INIAD-FES.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9YN493UFZE;
 				INFOPLIST_FILE = "INIADFES-2019/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.iniad.INIADFES-2019";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.iniad.fes2019;
 				PRODUCT_NAME = "INIAD-FES";
+				PROVISIONING_PROFILE_SPECIFIER = "INIAD-FES2019 Official App Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -640,15 +654,19 @@
 			baseConfigurationReference = 5C656B324DBC71BEE6AD9D82 /* Pods-INIADFES-2019.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "INIADFES-2019/INIAD-FES.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9YN493UFZE;
 				INFOPLIST_FILE = "INIADFES-2019/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.iniad.INIADFES-2019";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.iniad.fes2019;
 				PRODUCT_NAME = "INIAD-FES";
+				PROVISIONING_PROFILE_SPECIFIER = "INIAD-FES2019 Official App Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
