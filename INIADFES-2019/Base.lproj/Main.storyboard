@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jPA-Fr-nmx"/>
                         <segue destination="rMV-QW-ouB" kind="relationship" relationship="viewControllers" id="zp8-wo-dIy"/>
+                        <segue destination="AeY-dc-Ecv" kind="relationship" relationship="viewControllers" id="5Xs-MY-YjQ"/>
                         <segue destination="jxr-Iu-Ucf" kind="relationship" relationship="viewControllers" id="qBr-gS-5ja"/>
                     </connections>
                 </tabBarController>
@@ -70,6 +71,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENC-Gl-ZCj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-492" y="-79.064039408867004"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="AGK-ar-tWi">
+            <objects>
+                <viewController id="AeY-dc-Ecv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFl-Q5-KZv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-Bh-FU3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="実行委員会からのお知らせ" id="A5V-Qw-rnt"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rqH-uU-cUi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="AeE-RI-FVF" style="IBUITableViewCellStyleDefault" id="quh-7l-AWQ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="quh-7l-AWQ" id="UmM-Pw-35M">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AeE-RI-FVF">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LVR-Bh-FU3" firstAttribute="top" secondItem="uTi-Nj-cEu" secondAttribute="top" id="Xss-DP-5u0"/>
+                            <constraint firstItem="LVR-Bh-FU3" firstAttribute="leading" secondItem="uTi-Nj-cEu" secondAttribute="leading" id="gjl-dy-O0n"/>
+                            <constraint firstItem="LVR-Bh-FU3" firstAttribute="trailing" secondItem="uTi-Nj-cEu" secondAttribute="trailing" id="mWw-rM-PSj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uTi-Nj-cEu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="info.circle" catalog="system" selectedImage="info.circle" id="fmr-pE-inO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYe-u6-LTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421.73913043478262" y="-80.357142857142847"/>
         </scene>
         <!--Other-->
         <scene sceneID="cJi-dc-0uJ">
@@ -472,6 +527,47 @@ regulations.</mutableString>
             </objects>
             <point key="canvasLocation" x="311.59420289855075" y="697.76785714285711"/>
         </scene>
+        <!--Others Web View Controller-->
+        <scene sceneID="Nzj-XB-hfl">
+            <objects>
+                <viewController storyboardIdentifier="OthersWebView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RQx-qk-S0S" customClass="OthersWebViewController" customModule="INIAD_FES" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cEd-Vc-XiP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-h1-hxA">
+                                <rect key="frame" x="364" y="44" width="30" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="✗"/>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-da-TaS">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j3s-da-TaS" firstAttribute="leading" secondItem="pXw-hX-ny5" secondAttribute="leading" id="4fy-IP-N3d"/>
+                            <constraint firstItem="Gat-h1-hxA" firstAttribute="top" secondItem="pXw-hX-ny5" secondAttribute="top" id="8hf-nT-Bsz"/>
+                            <constraint firstItem="j3s-da-TaS" firstAttribute="top" secondItem="Gat-h1-hxA" secondAttribute="bottom" constant="8" id="HfQ-co-s9r"/>
+                            <constraint firstItem="pXw-hX-ny5" firstAttribute="trailing" secondItem="Gat-h1-hxA" secondAttribute="trailing" constant="20" id="Nno-LT-pYV"/>
+                            <constraint firstItem="j3s-da-TaS" firstAttribute="bottom" secondItem="pXw-hX-ny5" secondAttribute="bottom" id="VzL-47-dA7"/>
+                            <constraint firstItem="j3s-da-TaS" firstAttribute="trailing" secondItem="pXw-hX-ny5" secondAttribute="trailing" id="WBg-Vq-d1Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pXw-hX-ny5"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="j3s-da-TaS" id="ePC-p1-oVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmV-dA-1xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063.768115942029" y="697.76785714285711"/>
+        </scene>
         <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -767,6 +863,7 @@ regulations.</mutableString>
     </scenes>
     <resources>
         <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
+        <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="map" catalog="system" width="64" height="56"/>
         <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="qrcode" catalog="system" width="64" height="56"/>

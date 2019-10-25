@@ -33,6 +33,10 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         initContents()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        (UIApplication.shared.delegate as! AppDelegate).checkFirstLaunch()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

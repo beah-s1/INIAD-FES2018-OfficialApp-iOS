@@ -15,13 +15,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GO9-vE-qJQ">
-                    <rect key="frame" x="87" y="44" width="240" height="240"/>
+                    <rect key="frame" x="87" y="64" width="240" height="240"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="GO9-vE-qJQ" secondAttribute="height" multiplier="1:1" id="Xtc-hL-eNx"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqJ-Z5-YKm">
-                    <rect key="frame" x="70" y="292" width="274" height="41"/>
+                    <rect key="frame" x="70" y="312" width="274" height="41"/>
                     <string key="text">INIAD-FES2019 Official App
 Version 1.0</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -29,13 +29,13 @@ Version 1.0</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bk5-w0-3cC">
-                    <rect key="frame" x="127" y="375" width="161" height="21"/>
+                    <rect key="frame" x="127" y="395" width="161" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-uT-Cdc">
-                    <rect key="frame" x="12" y="404" width="390" height="30"/>
+                    <rect key="frame" x="12" y="424" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="INIAD-FES 2019 公式サイト"/>
                     <connections>
@@ -51,7 +51,7 @@ Thank you for using This App!</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9I-6d-Lje">
-                    <rect key="frame" x="12" y="565" width="390" height="30"/>
+                    <rect key="frame" x="12" y="585" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="法的情報"/>
                     <connections>
@@ -59,7 +59,7 @@ Thank you for using This App!</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaZ-Iu-X2b">
-                    <rect key="frame" x="12" y="603" width="390" height="30"/>
+                    <rect key="frame" x="12" y="623" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="プライバシーポリシー"/>
                     <connections>
@@ -67,7 +67,7 @@ Thank you for using This App!</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfw-As-ibz">
-                    <rect key="frame" x="12" y="480" width="390" height="30"/>
+                    <rect key="frame" x="12" y="500" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="Instagram"/>
                     <connections>
@@ -75,7 +75,7 @@ Thank you for using This App!</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKz-9j-KWl">
-                    <rect key="frame" x="12" y="641" width="390" height="30"/>
+                    <rect key="frame" x="12" y="661" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="アプリの利用方法"/>
                     <connections>
@@ -84,7 +84,7 @@ Thank you for using This App!</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHm-PM-anV">
-                    <rect key="frame" x="12" y="442" width="390" height="30"/>
+                    <rect key="frame" x="12" y="462" width="390" height="30"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="Twitter"/>
                     <connections>
@@ -119,7 +119,7 @@ Thank you for using This App!</string>
                 <constraint firstItem="Qfw-As-ibz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="hhh-Gi-EQQ"/>
                 <constraint firstItem="UqJ-Z5-YKm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="kfA-67-n1z"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GO9-vE-qJQ" secondAttribute="trailing" constant="87" id="mPt-xQ-6KC"/>
-                <constraint firstItem="GO9-vE-qJQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="nBw-ha-9wP"/>
+                <constraint firstItem="GO9-vE-qJQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="nBw-ha-9wP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YHm-PM-anV" secondAttribute="trailing" constant="12" id="nVi-AJ-oNc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QC5-uT-Cdc" secondAttribute="trailing" constant="12" id="qHN-4c-fhP"/>
                 <constraint firstItem="Bk5-w0-3cC" firstAttribute="top" secondItem="UqJ-Z5-YKm" secondAttribute="bottom" constant="42" id="t7r-ST-QPi"/>

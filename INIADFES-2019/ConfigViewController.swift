@@ -14,6 +14,7 @@ import UIKit
 import KeychainAccess
 import Alamofire
 import SwiftyJSON
+import WebKit
 
 class ConfigViewController:UIViewController{
     let configuration = Configuration.init()
@@ -54,11 +55,22 @@ class ConfigViewController:UIViewController{
     }
     
     func openManual(){
+        guard let view = storyboard!.instantiateViewController(withIdentifier: "OthersWebView") as? OthersWebViewController else{
+            return
+        }
+        
+        view.url = URL(string: "\(self.configuration.forKey(key: "base_url"))/manual?device_type=iOS")!
+        self.present(view, animated: true, completion: nil)
         
     }
     
     func openPrivacyPolicy(){
+        guard let view = storyboard!.instantiateViewController(withIdentifier: "OthersWebView") as? OthersWebViewController else{
+            return
+        }
         
+        view.url = URL(string: "\(self.configuration.forKey(key: "base_url"))/privacy")!
+        self.present(view, animated: true, completion: nil)
     }
 }
 
@@ -67,6 +79,18 @@ class CopyrightViewController:UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+class OthersWebViewController:UIViewController,WKNavigationDelegate,WKUIDelegate{
+    @IBOutlet weak var webView: WKWebView!
+    var url:URL!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.load(URLRequest(url: url))
+    }
 }
 
 class OthersView:UIView{
@@ -90,8 +114,12 @@ class OthersView:UIView{
     }
     
     @IBAction func Manual(_ sender: Any) {
+        let parentViewController = self.parentViewController() as! ConfigViewController
+        parentViewController.openManual()
     }
     
     @IBAction func PrivacyPolicy(_ sender: Any) {
+        let parentViewController = self.parentViewController() as! ConfigViewController
+        parentViewController.openPrivacyPolicy()
     }
 }

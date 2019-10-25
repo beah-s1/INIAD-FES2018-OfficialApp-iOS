@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         checkApiKey()
         
+        DispatchQueue.main.async {
+          UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        
         if #available(iOS 10.0, *){
             /** iOS10以上 **/
             let center = UNUserNotificationCenter.current()
@@ -95,8 +99,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+     }
+     */
+    func checkFirstLaunch(){
+        let userDefault = UserDefaults.standard
+        let dict = ["firstLaunch": true]
+        userDefault.register(defaults: dict)
+        
+        if userDefault.bool(forKey: "firstLaunch") {
+            userDefault.set(false, forKey: "firstLaunch")
+            let configuration = Configuration()
+            guard let vc = self.window?.rootViewController else{
+                return
+            }
+            
+            let view = vc.storyboard!.instantiateViewController(withIdentifier: "OthersWebView") as! OthersWebViewController
+            view.url = URL(string: "\(configuration.forKey(key: "base_url"))/manual?device_type=iOS")!
+            view.view.frame = vc.view.bounds
+            
+            vc.present(view, animated: true, completion: nil)
+            
+            
+        }
+        
+        
     }
-*/
+    
     func checkApiKey(){
         let config = Configuration()
         let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
