@@ -49,6 +49,21 @@ class VisitorQRCodeController:UIViewController{
             }
             
             switch appUserRole{
+            case (let role) where role.contains("fes_closed"):
+                //最終アンケート回答ページ
+                guard let view = UINib(nibName: "FinalEnqueteForm", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? FinalEnqueteView else{
+                    break
+                }
+                
+                view.backgroundColor = .white
+                view.frame = self.userSubView.bounds
+                view.apiKey = self.keyStore["api_key"]!
+                view.baseUrl = self.configuration.forKey(key: "base_url")
+                
+                view.intiialize()
+                
+                self.userSubView.addSubview(view)
+                break
             case (let role) where role.contains("circle_participant") || role.contains("fes_admin"):
                 // QR読み取り画面
                 guard let view = UINib(nibName: "QRCodeReader", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? QRCodeReader else{
@@ -107,20 +122,6 @@ class VisitorQRCodeController:UIViewController{
                 self.userSubView.addSubview(view)
                 
                 break
-            case (let role) where role.contains("fes_closed"):
-                //最終アンケート回答ページ
-                guard let view = UINib(nibName: "FinalEnqueteForm", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? FinalEnqueteView else{
-                    break
-                }
-                
-                view.backgroundColor = .white
-                view.frame = self.userSubView.bounds
-                view.apiKey = self.keyStore["api_key"]!
-                view.baseUrl = self.configuration.forKey(key: "base_url")
-                
-                view.intiialize()
-                
-                self.userSubView.addSubview(view)
             default:
                 // 属性登録フォーム
                 guard let view = UINib(nibName: "VisitorAttributeForm", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? VisitorAttributeForm else{
