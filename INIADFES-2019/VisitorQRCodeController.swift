@@ -12,16 +12,28 @@ import Alamofire
 import SwiftyJSON
 import KeychainAccess
 
-class VisitorQRCodeController:UIViewController{
+class VisitorQRCodeController:UIViewController,UINavigationBarDelegate{
     let configuration = Configuration.init()
     var keyStore:Keychain!
     
     @IBOutlet weak var userSubView: UIView!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.extendedLayoutIncludesOpaqueBars = false
         loadPermission()
+        
+        navBar.delegate = self
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        // ステータスバーの文字色を白で指定
+        return UIStatusBarStyle.lightContent
     }
     
     override func didReceiveMemoryWarning() {

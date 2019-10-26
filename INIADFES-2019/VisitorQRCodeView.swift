@@ -163,10 +163,16 @@ class QRCodeReader:UIView, AVCaptureMetadataOutputObjectsDelegate{
             
             Alamofire.request("\(baseUrl)/api/v1/visitor/entry/\(self.selectedCircle["ucode"]!)", method: .post,parameters: ["user_id":userId], headers: ["Authorization":"Bearer \(apiKey)"]).responseJSON{response in
                 print(JSON(response.result.value!))
+                let feedbackGenerator = UINotificationFeedbackGenerator()
+                feedbackGenerator.prepare()
+                
                 if response.response?.statusCode != 200{
                     self.statusText.text = "登録できませんでした"
+                    feedbackGenerator.notificationOccurred(.error)
                 }else{
                     self.statusText.text = "登録完了"
+                    feedbackGenerator.notificationOccurred(.success)
+                    
                 }
 
                 Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {_ in

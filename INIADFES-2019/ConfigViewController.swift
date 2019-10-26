@@ -5,8 +5,6 @@
 //  Created by Kentaro on 2019/10/21.
 //  Copyright © 2019 Kentaro. All rights reserved.
 //
-//-------------------------//
-//  仮で作っています、後からちゃんとしたConfigに直します
 //
 
 import Foundation
@@ -16,28 +14,29 @@ import Alamofire
 import SwiftyJSON
 import WebKit
 
-class ConfigViewController:UIViewController{
+class ConfigViewController:UIViewController,UINavigationBarDelegate{
     let configuration = Configuration.init()
     var keyStore:Keychain!
     @IBOutlet weak var content: UIScrollView!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navBar.delegate = self
         self.keyStore = Keychain.init(service: configuration.forKey(key: "keychain_iden tifier"))
         
         guard let view = UINib(nibName: "OthersView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? OthersView else{
             return
         }
-        
-        if #available(iOS 13.0, *){
-            view.backgroundColor = .systemBackground
-        }
-        view.logoImage.backgroundColor = .none
-        view.frame.size.width = self.content.bounds.maxX
-        self.content.contentSize.height = view.frame.size.height
-        self.content.sizeToFit()
-        
-        self.content.addSubview(view)
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        // ステータスバーの文字色を白で指定
+        return UIStatusBarStyle.lightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,6 +90,11 @@ class OthersWebViewController:UIViewController,WKNavigationDelegate,WKUIDelegate
         webView.uiDelegate = self
         webView.load(URLRequest(url: url))
     }
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 class OthersView:UIView{

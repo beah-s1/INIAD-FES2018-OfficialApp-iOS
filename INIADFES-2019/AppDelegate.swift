@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         checkApiKey()
         
+        UINavigationBar.appearance().isTranslucent = false
+        
         DispatchQueue.main.async {
           UIApplication.shared.applicationIconBadgeNumber = 0
         }
@@ -51,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
 
-        
+        Thread.sleep(forTimeInterval: 3.0)
         return true
     }
     
@@ -129,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let config = Configuration()
         let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
         if keyStore["api_key"] != nil{
-            //requestApiKey()
+            //requestApiKey() //DEBUG ONLY
         }else{
             requestApiKey()
         }

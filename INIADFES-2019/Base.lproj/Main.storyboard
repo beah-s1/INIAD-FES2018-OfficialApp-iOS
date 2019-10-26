@@ -14,10 +14,12 @@
                 <tabBarController id="EHZ-7t-PzE" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="udL-kA-M2t">
+                    <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="udL-kA-M2t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.1058823529" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.074509803920000006" green="0.1058823529" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jPA-Fr-nmx"/>
@@ -38,8 +40,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNy-yM-3xK">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNy-yM-3xK">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.1058823529" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="QRコード" id="OS8-KN-x06"/>
                                 </items>
@@ -62,9 +72,10 @@
                         <viewLayoutGuide key="safeArea" id="Z1h-fH-st2"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="QR" image="qrcode" catalog="system" selectedImage="qrcode" id="vro-6X-jTZ"/>
+                    <tabBarItem key="tabBarItem" title="QR" image="QRCode_icon" selectedImage="QRCode_icon" id="vro-6X-jTZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="navBar" destination="hNy-yM-3xK" id="PYr-fj-QEx"/>
                         <outlet property="userSubView" destination="qkZ-G8-vSG" id="U5J-h5-dRo"/>
                     </connections>
                 </viewController>
@@ -72,16 +83,24 @@
             </objects>
             <point key="canvasLocation" x="-492" y="-79.064039408867004"/>
         </scene>
-        <!--Item-->
+        <!--お知らせ-->
         <scene sceneID="AGK-ar-tWi">
             <objects>
-                <viewController id="AeY-dc-Ecv" sceneMemberID="viewController">
+                <viewController id="AeY-dc-Ecv" customClass="NotificationHistoryViewController" customModule="INIAD_FES" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFl-Q5-KZv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-Bh-FU3">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-Bh-FU3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <color key="barTintColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="実行委員会からのお知らせ" id="A5V-Qw-rnt"/>
                                 </items>
@@ -119,14 +138,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uTi-Nj-cEu"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="info.circle" catalog="system" selectedImage="info.circle" id="fmr-pE-inO"/>
+                    <tabBarItem key="tabBarItem" title="お知らせ" image="Information_icon" selectedImage="Information_icon" id="fmr-pE-inO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="navBar" destination="LVR-Bh-FU3" id="b1I-ld-E35"/>
+                        <outlet property="notificationTable" destination="rqH-uU-cUi" id="rVv-uQ-0UY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYe-u6-LTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="421.73913043478262" y="-80.357142857142847"/>
         </scene>
-        <!--Other-->
+        <!--その他-->
         <scene sceneID="cJi-dc-0uJ">
             <objects>
                 <viewController id="jxr-Iu-Ucf" customClass="ConfigViewController" customModule="INIAD_FES" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,8 +157,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-eC-4pW">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-eC-4pW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <color key="barTintColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="その他" id="Qwr-bf-ycf"/>
                                 </items>
@@ -156,10 +187,11 @@
                         <viewLayoutGuide key="safeArea" id="cV5-cr-TRv"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Other" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle" id="uux-Bd-759"/>
+                    <tabBarItem key="tabBarItem" title="その他" image="ellipsis_icon" selectedImage="ellipsis_icon" id="uux-Bd-759"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="content" destination="h3g-6J-XVH" id="yVX-l2-kO6"/>
+                        <outlet property="navBar" destination="MdW-eC-4pW" id="Ytr-L3-bRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfz-n0-Rf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -177,7 +209,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09A-1a-BvO">
                                 <rect key="frame" x="20" y="100" width="374" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">--- Alamofire ---
+                                <string key="text">--- Alamofire ---
 Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -496,7 +528,7 @@ regulations of the U.S. Department of Commerce or other agency or authority of
 the United States or other applicable countries. You also agree not to transfer,
 or authorize the transfer of, directly or indirectly, of the Software to any
 Prohibited Jurisdiction, or otherwise in violation of any such restrictions or
-regulations.</mutableString>
+regulations.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -539,6 +571,9 @@ regulations.</mutableString>
                                 <rect key="frame" x="364" y="44" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="✗"/>
+                                <connections>
+                                    <action selector="close:" destination="RQx-qk-S0S" eventType="touchUpInside" id="lqS-bF-U1E"/>
+                                </connections>
                             </button>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-da-TaS">
                                 <rect key="frame" x="0.0" y="100" width="414" height="762"/>
@@ -568,7 +603,7 @@ regulations.</mutableString>
             </objects>
             <point key="canvasLocation" x="1063.768115942029" y="697.76785714285711"/>
         </scene>
-        <!--Map-->
+        <!--マップ-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="IniadMapViewController" customModule="INIAD_FES" customModuleProvider="target" sceneMemberID="viewController">
@@ -576,11 +611,19 @@ regulations.</mutableString>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fw1-YF-BLR">
+                            <navigationBar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw1-YF-BLR">
                                 <rect key="frame" x="0.0" y="44" width="414" height="48.5"/>
+                                <color key="backgroundColor" cyan="0.73777160659999996" magenta="0.5" yellow="0.0" black="0.72991448479999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fw1-YF-BLR" secondAttribute="height" multiplier="375:44" id="YlB-Dn-CS9"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.074509803921568626" green="0.10588235294117647" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="1F マップ" id="gDc-cg-4zu"/>
                                 </items>
@@ -679,8 +722,8 @@ regulations.</mutableString>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ijU-3M-Q5Z">
-                                <rect key="frame" x="355" y="108" width="40" height="38"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lens_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ijU-3M-Q5Z">
+                                <rect key="frame" x="355" y="107" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -711,12 +754,13 @@ regulations.</mutableString>
                             <outletCollection property="gestureRecognizers" destination="SVA-Bm-dyN" appends="YES" id="uDg-2c-9Ly"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="fDH-sb-TR6"/>
+                    <tabBarItem key="tabBarItem" title="マップ" image="Map_icon" selectedImage="Map_icon" id="fDH-sb-TR6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="exhibitsView" destination="hnU-aM-4mA" id="VPr-Rz-tpB"/>
                         <outlet property="floorBar" destination="fw1-YF-BLR" id="QtK-Lj-xLv"/>
                         <outlet property="mapImage" destination="xbR-IL-udx" id="k2i-ft-r0a"/>
+                        <outlet property="navBar" destination="fw1-YF-BLR" id="evQ-L5-fK8"/>
                         <outlet property="tabBarItem" destination="fDH-sb-TR6" id="CBD-Ya-2bT"/>
                     </connections>
                 </viewController>
@@ -862,10 +906,10 @@ regulations.</mutableString>
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
-        <image name="info.circle" catalog="system" width="64" height="60"/>
-        <image name="map" catalog="system" width="64" height="56"/>
-        <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="qrcode" catalog="system" width="64" height="56"/>
+        <image name="Information_icon" width="30" height="30"/>
+        <image name="Lens_icon" width="30" height="30"/>
+        <image name="Map_icon" width="30" height="30"/>
+        <image name="QRCode_icon" width="30" height="30"/>
+        <image name="ellipsis_icon" width="30" height="30"/>
     </resources>
 </document>

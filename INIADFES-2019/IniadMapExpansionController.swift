@@ -34,7 +34,12 @@ class IniadMapExpansionViewController:UIViewController, UIScrollViewDelegate{
         
         self.imageViewBase.addSubview(self.imageView)
         
+        let statusBarBackground = UIView(frame: CGRect(x: 0.0, y: 0.0,
+          width: UIApplication.shared.statusBarFrame.size.width,
+          height: UIApplication.shared.statusBarFrame.size.height))
+        statusBarBackground.backgroundColor = UIColor.init(red: 19.0, green: 27.0, blue: 46.0, alpha: 1.0)
         
+        self.view.addSubview(statusBarBackground)
     }
     
     override func didReceiveMemoryWarning() {

@@ -12,8 +12,9 @@ import Alamofire
 import SwiftyJSON
 import KeychainAccess
 
-class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
+class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewDataSource,UINavigationBarDelegate{
     
+    @IBOutlet weak var navBar: UINavigationBar!
     var selectedFloor = 1
     
     @IBOutlet weak var mapImage: UIImageView!
@@ -31,6 +32,17 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         initContents()
+        navBar.delegate = self
+        
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        // ステータスバーの文字色を白で指定
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidAppear(_ animated: Bool) {
