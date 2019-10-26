@@ -50,7 +50,7 @@ class VisitorQRCodeController:UIViewController,UINavigationBarDelegate{
             }
             
             let responseJsonObject = JSON(value)
-            print(responseJsonObject)
+            //print(responseJsonObject)
             guard let appUserRole = responseJsonObject["role"].arrayObject as? [String] else{
                 return
             }

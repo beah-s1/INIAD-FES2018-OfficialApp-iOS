@@ -34,13 +34,13 @@ class VisitorAttributeForm:UIView, WKNavigationDelegate, WKUIDelegate{
         guard let url = navigationAction.request.url else{
             return
         }
-        print(url.absoluteString)
+        //print(url.absoluteString)
         if url.scheme != "iniadfes"{
             decisionHandler(.allow)
             return
         }
         
-        print(url.host)
+        //print(url.host)
         if url.host == "require-external-browser"{
             let parameter = url.queryParams()
             guard let goto = parameter["goto"] else{
@@ -162,7 +162,7 @@ class QRCodeReader:UIView, AVCaptureMetadataOutputObjectsDelegate{
             self.session.stopRunning()
             
             Alamofire.request("\(baseUrl)/api/v1/visitor/entry/\(self.selectedCircle["ucode"]!)", method: .post,parameters: ["user_id":userId], headers: ["Authorization":"Bearer \(apiKey)"]).responseJSON{response in
-                print(JSON(response.result.value!))
+                //print(JSON(response.result.value!))
                 let feedbackGenerator = UINotificationFeedbackGenerator()
                 feedbackGenerator.prepare()
                 

@@ -72,20 +72,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let config = Configuration()
         let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
-        print(token)
+        //print(token)
         
         Alamofire.request("\(config.forKey(key: "base_url"))/api/v1/user", method: .post, parameters: ["device_token":token], headers: ["Authorization":"Bearer \(keyStore["api_key"]!)"]).responseJSON{response in
             guard let value = response.result.value else{
                 return
             }
             
-            print(JSON(value))
+            //print(JSON(value))
         }
     }
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register to APNs: \(error)")
+        //print("Failed to register to APNs: \(error)")
     }
 /*
     // MARK: UISceneSession Lifecycle
@@ -154,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             let responseJson = JSON(value)
-            print(responseJson)
+            //print(responseJson)
             
             keyStore["api_key"] = responseJson["secret"].stringValue
             

@@ -31,7 +31,7 @@ class NotificationHistoryViewController:UIViewController,UITableViewDelegate,UIT
             }
             
             let notificationJsonObject = JSON(value)
-            print(notificationJsonObject)
+            //print(notificationJsonObject)
             for i in notificationJsonObject["objects"]{
                 self.notifications.append(["id":i.1["id"].stringValue,"title":i.1["title"].stringValue,"message":i.1["message"].stringValue])
             }
