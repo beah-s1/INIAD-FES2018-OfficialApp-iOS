@@ -58,7 +58,7 @@ class NotificationHistoryViewController:UIViewController,UITableViewDelegate,UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "\(self.notifications[indexPath.row]["id"]!)  \(self.notifications[indexPath.row]["title"]!)"
+        cell.textLabel?.text = self.notifications[indexPath.row]["title"]!
         
         cell.accessoryType = .detailButton
         return cell

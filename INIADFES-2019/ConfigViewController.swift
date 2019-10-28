@@ -28,6 +28,17 @@ class ConfigViewController:UIViewController,UINavigationBarDelegate{
         guard let view = UINib(nibName: "OthersView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? OthersView else{
             return
         }
+        
+        if #available(iOS 13.0, *){
+            view.backgroundColor = .systemBackground
+        }
+        view.logoImage.backgroundColor = .none
+        view.frame.size.width = self.content.bounds.maxX
+        self.content.contentSize.height = view.frame.size.height
+        self.content.sizeToFit()
+        
+        self.content.addSubview(view)
+
     }
     
     func position(for bar: UIBarPositioning) -> UIBarPosition {

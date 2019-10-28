@@ -55,6 +55,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func initContents(){
+        
         if self.selectedFloor != 5{
             self.floorBar.topItem?.title = "\(self.selectedFloor)F MAP"
         }else{
@@ -62,6 +63,8 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         }
         
         self.keyStore = Keychain.init(service: configuration.forKey(key: "keychain_identifier"))
+        
+        self.getFloorImageUrl()
         Alamofire.request(
             "\(configuration.forKey(key: "base_url"))/api/v1/contents",
             method: .get,
@@ -115,19 +118,7 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
             
             self.exhibitsView.reloadData()
             
-            switch self.selectedFloor{
-            case 1:
-                self.mapImage.image = UIImage.init(named: "1F")
-            case 2:
-                self.mapImage.image = nil
-            case 3:
-                self.mapImage.image = UIImage.init(named: "3F")
-            case 4:
-                self.mapImage.image = UIImage.init(named: "4F")
-            case 5:
-                self.mapImage.image = UIImage.init(named: "5F")
-            default:break
-            }
+            self.loadAndDisplayMapImage()
         }
     }
     
@@ -213,5 +204,73 @@ class IniadMapViewController:UIViewController, UITableViewDelegate, UITableViewD
         view.roomAndOrganizationText.text = "\(self.contents[indexPath.row].place.roomName)/\(self.contents[indexPath.row].organizer)"
         view.contentDescriptionText.text = self.contents[indexPath.row].description
         view.contentImageView.image = self.cachedImages[self.contents[indexPath.row].imageUrl]
+    }
+    
+    func getFloorImageUrl(){
+        var imageUrlListJsonObject:JSON!
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        let queue     = DispatchQueue.global(qos: .utility)
+        Alamofire.request("\(self.configuration.forKey(key: "base_url"))/api/v1/map-images", method: .get, headers: ["Authorization":"Bearer \(self.keyStore["api_key"]!)"]).responseJSON(queue: queue){response in
+            guard let imageUrlListObject = response.result.value else{
+                let alert = UIAlertController.init(title: "Error", message: "画像情報の取得に失敗しました", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "リトライ", style: .cancel, handler: {action in
+                    self.getFloorImageUrl()
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            imageUrlListJsonObject = JSON(imageUrlListObject)
+            semaphore.signal()
+        }
+        semaphore.wait()
+        
+        if imageUrlListJsonObject["status"] != "success"{
+            let alert = UIAlertController.init(title: "Error", message: "画像情報の取得に失敗しました", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                
+            }))
+            alert.addAction(UIAlertAction(title: "リトライ", style: .cancel, handler: {action in
+                self.getFloorImageUrl()
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        for imageUrlObject in imageUrlListJsonObject["images"]{
+            if self.cachedImages["floor-image/\(imageUrlObject.1["floor"].intValue)"] != nil{
+                continue
+            }
+            print(imageUrlObject.1["image_url"].stringValue)
+            Alamofire.request(imageUrlObject.1["image_url"].stringValue).responseData{response in
+                guard let value = response.result.value else{
+                    let alert = UIAlertController.init(title: "Error", message: "画像の取得に失敗しました", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                        
+                    }))
+                    alert.addAction(UIAlertAction(title: "リトライ", style: .cancel, handler: {action in
+                        self.getFloorImageUrl()
+                    }))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                
+                let image = UIImage.init(data: value)
+                
+                self.cachedImages["floor-image/\(imageUrlObject.1["floor"].intValue)"] = image
+                self.loadAndDisplayMapImage()
+            }
+        }
+    }
+    
+    func loadAndDisplayMapImage(){
+        self.mapImage.image = self.cachedImages["floor-image/\(self.selectedFloor)"]
     }
 }

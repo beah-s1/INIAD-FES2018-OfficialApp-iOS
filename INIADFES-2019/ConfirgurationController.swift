@@ -14,7 +14,8 @@ class Configuration{
     
     init() {
         guard let path = Bundle.main.path(forResource: "configuration", ofType: "plist") else{
-            assert(false, "COULD NOT FIND CONFIGURATION FILE")
+            //assert(false, )
+            fatalError("COULD NOT FIND CONFIGURATION FILE")
         }
         self.dict = NSDictionary(contentsOfFile: path)!
     }
