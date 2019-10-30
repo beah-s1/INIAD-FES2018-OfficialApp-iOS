@@ -137,4 +137,23 @@ class OthersView:UIView{
         let parentViewController = self.parentViewController() as! ConfigViewController
         parentViewController.openPrivacyPolicy()
     }
+    
+    @IBAction func reset(_ sender: Any) {
+        guard let vc = self.parentViewController() as? ConfigViewController else{
+            return
+        }
+        let alert = UIAlertController(title: "確認", message: "リセットすると、来場履歴など全ての情報が削除されます。\nこの操作は取り消せません。\nINIAD-FES実行委員の指示がある場合のみ操作してください。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "リセット", style: .destructive, handler: {action in
+            
+            let config = Configuration.init()
+            let keyStore = Keychain.init(service: config.forKey(key: "keychain_identifier"))
+            
+            try! keyStore.removeAll()
+            exit(0)
+        }))
+        
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
 }
